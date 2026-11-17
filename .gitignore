@@ -1,1 +1,17 @@
 PHOTOS.md
+node_modules/
+dist/
+.astro/
+.DS_Store
+alcohol-flagged/
+
+# Original full-size photos stay local; the site uses resized copies in src/assets/photos.
+Beer Olympics - Champ Chackles/
+Boo bash/
+Exec/
+Formal Chapter/
+Paws and taus/
+Steps/
+Tenders/
+composites/
+misc/

@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { news } from '../data/site';
+import hero from '../assets/photos/bid-day/DSC_6254.jpg';
+import brothers from '../assets/photos/bid-day/DSC_6145.jpg';
+---
+
+<Base title="Home">
+  <PageHero image={hero} alt="The Theta Sigma chapter on Bid Day in front of giant ATO letters" title="Alpha Tau Omega" kicker="Theta Sigma · Texas A&M" full focus="center 65%">
+    <div class="btn-row">
+      <a href="/recruitment" class="btn">Join the brotherhood</a>
+      <a href="/about" class="btn ghost">Who we are</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">With a bond as strong as right itself</p>
+        <h2>Brotherhood at Texas A&amp;M</h2>
+        <p class="lead">
+          Theta Sigma is a brotherhood of Aggies who push each other to be better men: in the classroom, in our community, and in our faith.
+        </p>
+        <a href="/about" class="btn ghost">Our story</a>
+      </div>
+      <Image src={brothers} alt="Brothers holding the ATO flag on campus" widths={[600, 1000]} sizes="(min-width: 860px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">Recent events</p>
+      <h2>What we've been up to</h2>
+      <div class="grid">
+        {news.slice(0, 3).map((item) => <NewsCard {...item} />)}
+      </div>
+      <div class="btn-row"><a href="/news" class="btn ghost">All news</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap letter">
+      <p class="eyebrow">A letter from the president</p>
+      <h2>Welcome</h2>
+      <p class="lead">On behalf of the brothers of Alpha Tau Omega at Texas A&amp;M University, welcome.</p>
+      <p>
+        Since 1865, ATO has stood for a simple but demanding idea: brotherhood, lived well, makes men better. Our chapter
+        carries that idea forward every day through academic commitment, service to our community and leadership on campus and
+        beyond.
+      </p>
+      <p>
+        To potential new members, we offer an invitation to more than a social organization. Joining ATO is a commitment to
+        personal growth, shared accountability and friendships that last well past graduation. We are looking for men of
+        character who are eager to contribute.
+      </p>
+      <p>
+        To parents and families, we offer our assurance that your son will be part of a chapter that values his success as
+        highly as you do. We hold our members to high standards in the classroom and in their conduct, and we help them meet
+        those standards.
+      </p>
+      <p>
+        To our visitors, alumni and friends, we offer our gratitude. Your support makes our work possible, and we are proud to
+        represent both ATO and Texas A&amp;M.
+      </p>
+      <p>I invite you to explore these pages and to meet our brothers in person. We would be honored to welcome you.</p>
+      <p class="sign">Spencer Shushan<br />President (Theta Sigma)</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Rush ATO</h2>
+    <p>Spring recruitment opens soon. Come meet the brothers.</p>
+    <a href="/recruitment" class="btn">Learn about recruitment</a>
+  </section>
+</Base>
+
+<style>
+  .letter {
+    max-width: 46rem;
+  }
+  .sign {
+    margin-top: 1.5rem;
+    color: var(--muted);
+  }
+</style>

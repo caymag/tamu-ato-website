@@ -89,8 +89,8 @@ TBD. Ship v1 with an "Apparel coming soon" page; nav slot stays so it can be fil
 
 ## Open questions
 
-1. Tagline: unknown, placeholder for now.
-2. Domain: needs to be bought. Candidates: `tamuato.com`, `aggieato.com`, `atothetasigma.com`. Check availability at a registrar (Cloudflare Registrar sells at cost).
+1. Tagline: "With a bond as strong as right itself" (decided).
+2. Domain: aggieato.com (bought on Cloudflare, 2026-11-17).
 3. Who are the content editors, and do they have GitHub accounts?
 
 ## Milestones

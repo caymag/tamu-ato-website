@@ -1,0 +1,213 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import adam from '../assets/photos/spotlight/adam-peters.webp';
+import tyler from '../assets/photos/spotlight/tyler-podhaisky.webp';
+import { links } from '../data/site';
+import hero from '../assets/photos/bid-day/DSC_6180.jpg';
+import shirt from '../assets/photos/bid-day/DSC_6138.jpg';
+import p1 from '../assets/photos/bid-day/DSC_6226.jpg';
+import p2 from '../assets/photos/bid-day/DSC_6241.jpg';
+import p3 from '../assets/photos/bid-day/DSC_6242.jpg';
+import p4 from '../assets/photos/bid-day/DSC_6127.jpg';
+
+const strip = [
+  { src: p1, alt: 'New members kneeling together on Bid Day' },
+  { src: p2, alt: 'Brothers cheering on Bid Day' },
+  { src: p3, alt: 'Brothers celebrating on Bid Day' },
+  { src: p4, alt: 'Giant ATO letters on the lawn' },
+];
+
+const steps = [
+  { title: '1. Register', text: 'Sign up for fraternity recruitment through the Texas A&M IFC.' },
+  { title: '2. Meet us', text: 'Come out to our recruitment events, meet the brothers, and see if ATO is the right fit for you.' },
+  { title: '3. Bid Day', text: 'Receive your bid and celebrate with your new brothers at one of the best days of the year.' },
+];
+
+const spotlights = [
+  {
+    name: 'Adam Peters',
+    photo: adam,
+    role: 'Rush Chair',
+    details: "Class of 2025 · Industrial Distribution · Katy, TX",
+    qa: [
+      {
+        q: 'Why did you choose ATO?',
+        a: "Joining Alpha Tau Omega has been by far the best decision I've made in college. At a university as big as Texas A&M, finding a true, tight-knit brotherhood is everything, and I've found that and more since joining ATO.",
+      },
+      {
+        q: 'Favorite ATO memory so far?',
+        a: 'Definitely soap hockey during one of our brotherhood events. My knees were destroyed from falling the entire time, but nothing compares to watching the Aggies win and playing a random sport with my brothers.',
+      },
+      {
+        q: 'How has ATO helped you grow?',
+        a: 'Being the Rush Chair forced me to improve my communication and accountability. If we wanted to pull numbers, I had to be the one talking to each guy to see if they were a good fit. I also received a PepsiCo internship with a return offer, thanks to our alumni community and the skills I learned here at ATO.',
+      },
+      {
+        q: 'Advice for someone rushing?',
+        a: "Talk to everyone and picture who you'll become in that fraternity. If you think the guys will help you grow as a person, then that's a great indicator. But if not, why join?",
+      },
+    ],
+  },
+  {
+    name: 'Tyler Podhaisky',
+    photo: tyler,
+    role: 'Rush Committee',
+    details: 'Class of 2027 · Civil Engineering · Magnolia, TX',
+    qa: [
+      {
+        q: 'Why did you choose ATO?',
+        a: 'I first chose to rush ATO because I knew some of the guys in here, but I decided to join because it was so much fun talking and hanging out with the brothers.',
+      },
+      {
+        q: 'Favorite ATO memory so far?',
+        a: "My favorite memory has to be last year's alumni golf tournament, where I got to hang out and talk to all the alumni while playing a round.",
+      },
+      {
+        q: 'How has ATO helped you grow?',
+        a: 'ATO has really sharpened my personal time management and given me connections that have already landed me internships.',
+      },
+      {
+        q: 'What ATO values stand out the most to you?',
+        a: "This fraternity's faith really stands out to me. Many don't know, but we are a Christian-founded fraternity, and it really shows through our weekly Bible studies, whether it's just the chapter or with other sororities.",
+      },
+    ],
+  },
+];
+
+---
+
+<Base title="Recruitment" description="Rush Alpha Tau Omega at Texas A&M: dates, how to register, and brother spotlights.">
+  <PageHero image={hero} alt="Brothers rushing the field and waving the ATO flag on Bid Day" title="Rush ATO" kicker="Spring recruitment">
+    <div class="btn-row">
+      <a href={links.interestForm} class="btn" target="_blank" rel="noopener">Rush interest form</a>
+      <a href="#spotlight" class="btn ghost">Meet the brothers</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Why ATO</p>
+        <h2>Find your brothers</h2>
+        <p class="lead">ATO is where you'll find the friends you'll stand next to at graduation and in each other's weddings. Our brothers push each other academically, professionally, and spiritually, and our alumni network has helped brothers land internships and jobs across Texas.</p>
+      </div>
+      <Image src={shirt} alt="Back of a Fall Rush 2026 shirt" widths={[600, 1000]} sizes="(min-width: 860px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="grid">
+        {steps.map((s) => (
+          <div class="pillar">
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" id="spotlight">Brother spotlight</p>
+      <h2>Hear from the brothers</h2>
+      <div class="spotlights">
+        {spotlights.map((s) => (
+          <article class="card spotlight">
+            <header>
+              <Image src={s.photo} alt={`${s.name}, ${s.role}`} widths={[200, 400]} sizes="96px" />
+              <div>
+                <h3>{s.name}</h3>
+                <p class="role">{s.role}</p>
+                <p class="meta">{s.details}</p>
+              </div>
+            </header>
+            {s.qa.map(({ q, a }) => (
+              <div class="qa">
+                <p class="q">{q}</p>
+                <p>{a}</p>
+              </div>
+            ))}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="photo-grid">
+        {strip.map((p) => <Image src={p.src} alt={p.alt} widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="interest">
+    <div class="wrap">
+      <p class="eyebrow">Interested?</p>
+      <h2>Get recruitment updates</h2>
+      <p class="lead">Fill out our rush interest form and our recruitment chair will reach out with dates and events.</p>
+      <a href={links.interestForm} class="btn" target="_blank" rel="noopener">Rush interest form</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .spotlights {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    align-items: start;
+  }
+  .spotlight {
+    padding: 1.5rem;
+  }
+  .spotlight header {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .spotlight header img {
+    width: 96px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+  }
+  .spotlight h3 {
+    margin: 0 0 0.25rem;
+  }
+  .role {
+    margin: 0;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .spotlight .meta {
+    margin: 0.25rem 0 0;
+    letter-spacing: 0.05em;
+    text-transform: none;
+  }
+  .qa {
+    padding-top: 1rem;
+  }
+  .q {
+    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .qa p:last-child {
+    margin: 0;
+    color: #d1d5db;
+  }
+</style>

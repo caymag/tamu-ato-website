@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { links } from '../data/site';
+import hero from '../assets/photos/boo-bash/DSC_6901.jpg';
+---
+
+<Base title="Contact">
+  <PageHero image={hero} alt="Four brothers in onesies in front of the ATO backdrop" title="Contact" kicker="Get in touch" focus="center 30%" />
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Reach out</h2>
+      <p class="lead">Questions about events or the chapter? Send us an email.</p>
+      <div class="btn-row">
+        <a href={`mailto:${links.email}`} class="btn">{links.email}</a>
+        <a href={links.instagram} class="btn ghost">@aggie.ato</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">Interested in rushing?</p>
+      <h2>Rush interest form</h2>
+      <p class="lead">Potential new members, fill out our rush interest form and our recruitment chair will reach out.</p>
+      <a href={links.interestForm} class="btn" target="_blank" rel="noopener">Rush interest form</a>
+    </div>
+  </section>
+</Base>

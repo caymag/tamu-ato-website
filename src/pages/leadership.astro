@@ -1,0 +1,141 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import hero from '../assets/photos/bid-day/DSC_6145.jpg';
+import o1 from '../assets/photos/exec/officer-1.jpg';
+import o2 from '../assets/photos/exec/officer-2.jpg';
+import o3 from '../assets/photos/exec/officer-3.jpg';
+import o4 from '../assets/photos/exec/officer-4.jpg';
+import o5 from '../assets/photos/exec/officer-5.jpg';
+import o6 from '../assets/photos/exec/officer-6.jpg';
+import o7 from '../assets/photos/exec/officer-7.jpg';
+import o8 from '../assets/photos/exec/officer-8.jpg';
+import o9 from '../assets/photos/exec/officer-9.jpg';
+import o10 from '../assets/photos/exec/officer-10.jpg';
+
+const officers: { photo?: ImageMetadata; name: string; role: string; year?: string }[] = [
+  // Display order, left to right. Officers without a photo show a blank profile.
+  { photo: o5, name: 'Spencer Shushan', role: 'President', year: '2028' },
+  { photo: o2, name: 'Grayson Gaides', role: 'Vice President', year: '2028' },
+  { name: 'Aiden Wallace', role: 'Treasurer' },
+  { photo: o3, name: 'Kai Tiantawach', role: 'Chaplain', year: '2028' },
+  { photo: o4, name: 'Cooper Eggl', role: 'Head VP of Recruitment', year: '2029' },
+  { photo: o7, name: 'Gianni Giacoman', role: 'VP of Recruitment', year: '2029' },
+  { photo: o8, name: 'Luke Ray', role: 'VP of Recruitment', year: '2029' },
+  { photo: o6, name: 'Pierce Bendikson', role: 'Membership Educator', year: '2029' },
+  { name: 'Jacob Merkel', role: 'Risk Management' },
+  { photo: o1, name: 'Remington Lu', role: 'Secretary', year: '2028' },
+  { name: 'Jett Jones', role: 'Historian' },
+  { name: 'Zach McGinn', role: 'Social Chair' },
+  { photo: o9, name: 'Sawyer Kouba', role: 'Housing', year: '2029' },
+  { photo: o10, name: 'Deuce Abel', role: 'Philanthropy', year: '2029' },
+];
+
+// The president gets his own row on top.
+const leads = officers.slice(0, 1);
+const board = officers.slice(1);
+---
+
+<Base title="Leadership">
+  <PageHero image={hero} alt="Brothers holding the ATO flag on campus" title="Leadership" kicker="Executive board" focus="center 30%" />
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Executive board</h2>
+      <p class="lead">Our 2027 executive board.</p>
+      <div class="officers leads">
+        {leads.map((o) => (
+          <figure>
+            {o.photo ? (
+              <Image src={o.photo} alt={`${o.name}, ${o.role}`} widths={[300, 600]} sizes="(min-width: 900px) 220px, 45vw" />
+            ) : (
+              <div class="no-photo" role="img" aria-label={`${o.name}, ${o.role}`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z" /></svg>
+              </div>
+            )}
+            <figcaption>
+              <span class="role">{o.role}</span>
+              <span class="name">{o.name}</span>
+              {o.year && <span class="year">Class of {o.year}</span>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="officers">
+        {board.map((o) => (
+          <figure>
+            {o.photo ? (
+              <Image src={o.photo} alt={`${o.name}, ${o.role}`} widths={[300, 600]} sizes="(min-width: 900px) 220px, 45vw" />
+            ) : (
+              <div class="no-photo" role="img" aria-label={`${o.name}, ${o.role}`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z" /></svg>
+              </div>
+            )}
+            <figcaption>
+              <span class="role">{o.role}</span>
+              <span class="name">{o.name}</span>
+              {o.year && <span class="year">Class of {o.year}</span>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .officers {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  }
+  .leads {
+    grid-template-columns: minmax(0, 260px);
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  figure {
+    margin: 0;
+  }
+  .no-photo {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .no-photo svg {
+    width: 55%;
+    fill: #2c4262;
+  }
+  figure img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+  }
+  figcaption {
+    display: grid;
+    padding-top: 0.75rem;
+  }
+  .role {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+  .year {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>

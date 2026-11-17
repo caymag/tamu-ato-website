@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { links } from '../data/site';
+import hero from '../assets/photos/bid-day/DSC_6242.jpg';
+import chapter from '../assets/photos/chapter/DSC_6630.jpg';
+import golfBanner from '../assets/photos/golf/sponsor-banner.jpg';
+import golfPutting from '../assets/photos/golf/putting.jpg';
+---
+
+<Base title="Alumni">
+  <PageHero image={hero} alt="Brothers celebrating together on Bid Day" title="Alumni" kicker="Once a Tau, always a Tau" focus="center 40%" />
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <h2>Stay connected</h2>
+        <p class="lead">Once a Tau, always a Tau. Our alumni are a huge part of what makes Theta Sigma great, from mentoring actives to opening doors for internships. Stay in touch, come back for alumni events, and let us know where life has taken you.</p>
+        <div class="btn-row">
+          <a href="/contact" class="btn">Update your info</a>
+          <a href={links.give} class="btn ghost">Give to ATO</a>
+        </div>
+      </div>
+      <Image src={chapter} alt="The current chapter at a chapter meeting" widths={[600, 1000]} sizes="(min-width: 860px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">Tau Tee Off</p>
+      <h2>Alumni golf tournament</h2>
+      <p class="lead">
+        Every spring, actives and alumni hit the course together for our alumni golf tournament. Thank you to our generous
+        sponsors.
+      </p>
+      <div class="photo-grid golf">
+        <Image src={golfBanner} alt="Four brothers in front of the Tau Tee Off sponsor banner" widths={[500, 900]} sizes="(min-width: 900px) 50vw, 100vw" />
+        <Image src={golfPutting} alt="Brothers lining up a putt on the green" widths={[500, 900]} sizes="(min-width: 900px) 50vw, 100vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Newsletter</h2>
+      <p class="lead">Want chapter updates? Email us and we'll add you to our alumni mailing list.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .golf {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+  .golf img {
+    aspect-ratio: 3 / 4;
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { news } from '../data/site';
+import hero from '../assets/photos/bid-day/DSC_6241.jpg';
+---
+
+<Base title="News">
+  <PageHero image={hero} alt="Brothers cheering on Bid Day" title="Chapter News" kicker="Latest" focus="center 40%" />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        {news.map((item) => <NewsCard {...item} />)}
+      </div>
+    </div>
+  </section>
+</Base>

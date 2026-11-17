@@ -1,0 +1,264 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import tendersBand from '../assets/photos/past/tenders-with-taus-2024.webp';
+import tendersContest from '../assets/photos/past/tenders-with-taus-2024-2.webp';
+import pawsDog from '../assets/photos/past/paws-and-taus-2024.webp';
+import pawsGuests from '../assets/photos/past/paws-and-taus-2024-2.webp';
+import hero from '../assets/photos/tenders/DSC_6750.jpg';
+import sponsors from '../assets/photos/tenders/DSC_6774.jpg';
+import p1 from '../assets/photos/tenders/DSC_6717.jpg';
+import p2 from '../assets/photos/tenders/DSC_6669.jpg';
+import p3 from '../assets/photos/tenders/DSC_6676.jpg';
+import p4 from '../assets/photos/tenders/DSC_6667.jpg';
+import be1 from '../assets/photos/big-event/vests-1.jpg';
+import be2 from '../assets/photos/big-event/vests-2.jpg';
+import be3 from '../assets/photos/big-event/field.jpg';
+import be4 from '../assets/photos/big-event/digging.jpg';
+import be5 from '../assets/photos/big-event/porch.jpg';
+import be6 from '../assets/photos/big-event/yard.jpg';
+import axoStage from '../assets/photos/pageants/mr-axo-stage.jpg';
+import axoSash from '../assets/photos/pageants/mr-axo-sash.jpg';
+import axoBrothers from '../assets/photos/pageants/mr-axo-brothers.jpg';
+import axoGroup from '../assets/photos/pageants/mr-axo-group.jpg';
+import axoSashes from '../assets/photos/pageants/mr-axo-sashes.jpg';
+
+const strip = [
+  { src: p1, alt: 'Contestants racing through chicken tenders' },
+  { src: p2, alt: 'Brothers at a poker table during the tournament' },
+  { src: p3, alt: 'Players laughing at the poker table' },
+  { src: p4, alt: 'A poker hand in progress' },
+];
+
+const bigEvent = [
+  { src: be1, alt: 'Brothers and volunteers in safety vests with trash bags' },
+  { src: be2, alt: 'Volunteers in safety vests lined up in a parking lot' },
+  { src: be3, alt: 'Brothers and volunteers in a field after clearing brush' },
+  { src: be4, alt: 'Two brothers digging out brush in a front yard' },
+  { src: be5, alt: 'Volunteers giving a thumbs up on a front porch' },
+  { src: be6, alt: 'Brothers and volunteers in a backyard' },
+];
+
+const stats = [
+  { value: '$20K+', label: 'Raised in 2026' },
+  { value: '6', label: 'Contestants' },
+  { value: '6', label: 'Local sponsors' },
+];
+---
+
+<Base title="Philanthropy">
+  <PageHero image={hero} alt="Contestants eating chicken tenders at Tenders with Taus" title="Philanthropy" kicker="Giving back" focus="center 35%" />
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Our signature event</p>
+        <h2>Tenders with Taus</h2>
+        <p class="lead">
+          A chicken-tender eating contest and poker tournament, with every dollar going to VFW Post 4692.
+        </p>
+        <p>Thank you to Raising Cane's and all of our local sponsors.</p>
+      </div>
+      <Image src={sponsors} alt="Contestants in aprons behind the Tenders with Taus sponsor banner" widths={[600, 1000]} sizes="(min-width: 860px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="stats">
+        {stats.map((s) => (
+          <div>
+            <p class="value">{s.value}</p>
+            <p class="meta">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>From the event</h2>
+      <div class="photo-grid">
+        {strip.map((p) => <Image src={p.src} alt={p.alt} widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">Past events</p>
+      <h2>Our track record</h2>
+      <div class="past">
+        <article class="card">
+          <Image src={tendersBand} alt="A band playing on stage behind the Tenders with Taus sponsor banner" widths={[500, 750]} sizes="(min-width: 900px) 560px, 100vw" />
+          <div class="card-body">
+            <p class="meta">Third annual · Fall 2024</p>
+            <h3>Tenders with Taus</h3>
+            <p>
+              Our Third Annual Tenders with Taus raised <strong>$13,000</strong> in support of Veterans of Foreign Wars Post 4692.
+              This achievement would not have been possible without the strong dedication and hard work of our actives and new
+              members, whose combined efforts were key to the success of this event.
+            </p>
+            <p>
+              Impressively, the amount we raised is six times the amount we raised at the first edition of the event and three
+              times more than last year's total.
+            </p>
+            <p>
+              This year, we hosted the event at Carney's, moving from our previous venue at the Spot. The new location provided a
+              more open and relaxed atmosphere, which made the event even more enjoyable for everyone. Of course, being right across
+              the street from our new compound was a benefit as well.
+            </p>
+            <p>
+              The VFW representative spoke highly of our fraternity, emphasizing that we are setting a new standard for young men
+              and redefining expectations in terms of community service and giving back.
+            </p>
+            <p>
+              We want to congratulate the Aggie Gentlemen of Integrity for winning the competition, and thank President Jon Cain
+              for his leadership in organizing this event.
+            </p>
+          </div>
+          <Image src={tendersContest} alt="Contestants in aprons at the Tenders with Taus eating contest" widths={[500]} sizes="(min-width: 900px) 560px, 100vw" />
+        </article>
+
+        <article class="card">
+          <Image src={pawsDog} alt="Two brothers kneeling with a shelter dog at Paws and Taus" widths={[500, 750]} sizes="(min-width: 900px) 560px, 100vw" />
+          <div class="card-body">
+            <p class="meta">September 14, 2024</p>
+            <h3>Paws and Taus</h3>
+            <p>
+              The Fall 2024 semester marked the return of Paws &amp; Taus. Most current members had likely not experienced a Paws
+              &amp; Taus event before, so being able to bring it back, especially at a fresh property, was nothing short of a
+              privilege.
+            </p>
+            <p>
+              The event raised <strong>$2,750</strong> in support of the Longway Home Adoptables animal shelter in Bryan. With a
+              focus on adoptions and fostering, our efforts helped find temporary homes for three dogs, bringing them closer to
+              long-term adoption.
+            </p>
+            <p>
+              We set up booths for a bake sale run by shelter volunteers, and an area for concessions and drink sales that raised
+              additional dollars toward the philanthropy.
+            </p>
+            <p>
+              We partnered with TAMU Paws for this event, and thoroughly enjoyed working with them. The shelter was thrilled with
+              the outcome of our philanthropy and looks forward to partnering again in the future. A special thank you to Vice
+              President Dhruv Ruttala for organizing this event, and to Longway Home Adoptables for giving us this wonderful
+              opportunity.
+            </p>
+          </div>
+          <Image src={pawsGuests} alt="Guests sitting in the grass petting a shelter dog" widths={[500]} sizes="(min-width: 900px) 560px, 100vw" />
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Service</h2>
+      <div class="service">
+        <div>
+          <p class="value">1,499</p>
+          <p class="meta">Service hours in Spring 2026</p>
+        </div>
+        <p class="lead">In Spring 2026, our brothers logged 1,499 hours of community service.</p>
+      </div>
+
+      <div class="sub">
+        <h3>The Big Event</h3>
+        <p class="lead">
+          Every spring we join thousands of Aggies for the Big Event, Texas A&amp;M's student-run day of service, giving back to
+          the Bryan-College Station community that supports us.
+        </p>
+        <div class="photo-grid">
+          {bigEvent.map((p) => <Image src={p.src} alt={p.alt} widths={[400, 700]} sizes="(min-width: 900px) 33vw, 50vw" />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">Supporting our friends</p>
+      <h2>Mr. AXO</h2>
+      <p class="lead">We show up for the philanthropy events of the organizations around us, sashes and all.</p>
+      <!-- Big Man on Campus goes here once its photos are in. -->
+
+      <div class="pageant">
+        <div>
+          <p>One of our brothers represented ATO in Mr. Alpha Chi Omega, a pageant raising money for Alpha Chi Omega's philanthropy. The whole chapter came out to cheer him on.</p>
+        </div>
+        <div class="photo-grid">
+          <Image src={axoStage} alt="A brother performing on stage at Mr. AXO" widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+          <Image src={axoSash} alt="A brother in his Mr. Alpha Chi Omega sash with two members of Alpha Chi Omega" widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+          <Image src={axoBrothers} alt="Brothers on stage supporting their Mr. AXO contestant" widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+          <Image src={axoSashes} alt="Brothers in white with Mr. AXO sashes" widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+          <Image src={axoGroup} alt="Mr. AXO contestants with members of Alpha Chi Omega" widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .sub {
+    margin-top: 3rem;
+  }
+  .pageant {
+    display: grid;
+    gap: 1.5rem 3rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  @media (min-width: 860px) {
+    .pageant {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+  .pageant p {
+    color: #d1d5db;
+  }
+  .pageant .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+  }
+  .pageant .photo-grid img {
+    aspect-ratio: 3 / 4;
+  }
+  .past {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    align-items: start;
+  }
+  .past .card-body p:not(.meta) {
+    color: #d1d5db;
+  }
+  .past strong {
+    color: var(--gold);
+  }
+  .service {
+    display: grid;
+    gap: 1rem 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), max-content));
+    align-items: center;
+  }
+  .service .lead {
+    max-width: 34rem;
+    margin: 0;
+  }
+  .stats {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    text-align: center;
+  }
+  .value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 1;
+    color: var(--gold);
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import hero from '../assets/photos/bid-day/DSC_6226.jpg';
+
+// Every photo dropped into one of these folders shows up in its album automatically.
+const glob = {
+  'bid-day': import.meta.glob<{ default: ImageMetadata }>('../assets/photos/bid-day/*.jpg', { eager: true }),
+  tenders: import.meta.glob<{ default: ImageMetadata }>('../assets/photos/tenders/*.jpg', { eager: true }),
+  'boo-bash': import.meta.glob<{ default: ImageMetadata }>('../assets/photos/boo-bash/*.jpg', { eager: true }),
+  'big-event': import.meta.glob<{ default: ImageMetadata }>('../assets/photos/big-event/*.jpg', { eager: true }),
+  pageants: import.meta.glob<{ default: ImageMetadata }>('../assets/photos/pageants/*.jpg', { eager: true }),
+  'parents-weekend': import.meta.glob<{ default: ImageMetadata }>('../assets/photos/parents-weekend/*.jpg', { eager: true }),
+  'around-the-world': import.meta.glob<{ default: ImageMetadata }>('../assets/photos/around-the-world/*.jpg', { eager: true }),
+  golf: import.meta.glob<{ default: ImageMetadata }>('../assets/photos/golf/*.jpg', { eager: true }),
+  chapter: import.meta.glob<{ default: ImageMetadata }>('../assets/photos/chapter/*.jpg', { eager: true }),
+};
+
+const albums = [
+  { id: 'bid-day', title: 'Bid Day 2026' },
+  { id: 'tenders', title: 'Tenders with Taus' },
+  { id: 'boo-bash', title: 'Boo Bash' },
+  { id: 'big-event', title: 'The Big Event' },
+  { id: 'pageants', title: 'Mr. AXO' },
+  { id: 'parents-weekend', title: 'Spring Parents Weekend' },
+  { id: 'around-the-world', title: 'ATO Around the World' },
+  { id: 'golf', title: 'Alumni Golf Tournament' },
+  { id: 'chapter', title: 'Chapter' },
+] as const;
+---
+
+<Base title="Gallery">
+  <PageHero image={hero} alt="New members kneeling together on Bid Day" title="Gallery" kicker="Photos" focus="center 45%" />
+
+  {albums.map((album, i) => (
+    <section class:list={['section', { alt: i % 2 === 1 }]}>
+      <div class="wrap">
+        <h2>{album.title}</h2>
+        <div class="photo-grid">
+          {Object.values(glob[album.id]).map(({ default: img }, n) => (
+            <a href={img.src}>
+              <Image src={img} alt={`${album.title}, photo ${n + 1}`} widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+</Base>

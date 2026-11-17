@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import hero from '../assets/photos/chapter/DSC_6630.jpg';
+import letters from '../assets/photos/bid-day/DSC_6127.jpg';
+import pw1 from '../assets/photos/parents-weekend/family-2026.jpg';
+import pw2 from '../assets/photos/parents-weekend/family-2025.jpg';
+import pw3 from '../assets/photos/parents-weekend/family-2026-b.jpg';
+import pw4 from '../assets/photos/parents-weekend/dad-and-son.jpg';
+import pw5 from '../assets/photos/parents-weekend/crawfish-boil.jpg';
+import chilifest from '../assets/photos/chilifest/brothers.jpg';
+import bali from '../assets/photos/around-the-world/bali.jpg';
+import phoenix from '../assets/photos/around-the-world/phoenix.jpg';
+import bangkok from '../assets/photos/around-the-world/bangkok.jpg';
+import pompeii from '../assets/photos/around-the-world/pompeii.jpg';
+import fishing from '../assets/photos/around-the-world/fishing.jpg';
+import waterski from '../assets/photos/around-the-world/waterski.jpg';
+
+const pillars = [
+  { title: 'Brotherhood', text: 'Lifelong friendships built through shared experiences, from Bid Day to graduation and beyond.' },
+  { title: 'Leadership', text: 'Brothers lead on campus and in the chapter, growing skills that carry into their careers.' },
+  { title: 'Scholarship', text: 'We hold each other to a high academic standard and help one another reach it.' },
+  { title: 'Service', text: 'Through Tenders with Taus, the Big Event, and more, we give back to Bryan-College Station.' },
+];
+
+const parents = [
+  { src: pw5, alt: 'Families eating crawfish at picnic tables during Spring Parents Weekend' },
+  { src: pw1, alt: 'A brother with his parents at Spring Parents Weekend 2026' },
+  { src: pw2, alt: 'A brother with his parents at Spring Parents Weekend 2025' },
+  { src: pw3, alt: 'A brother with his parents in front of the crawfish boil sign' },
+  { src: pw4, alt: 'A brother and his dad in matching ATO shirts at the crawfish boil' },
+];
+
+// Captions are best guesses from the photos; confirm before launch.
+const travels = [
+  { src: bali, alt: 'A brother holding a Texas A&M flag on a sea cliff', place: 'Bali, Indonesia' },
+  { src: phoenix, alt: 'Four brothers holding the ATO flag in the desert', place: 'Phoenix, Arizona' },
+  { src: bangkok, alt: 'A brother with a tour group at a Thai palace', place: 'Bangkok, Thailand' },
+  { src: pompeii, alt: 'Brothers and family in the ruins of Pompeii', place: 'Pompeii, Italy' },
+  { src: fishing, alt: 'A brother holding a red snapper on a fishing boat', place: 'Offshore fishing' },
+  { src: waterski, alt: 'A brother waterskiing across a lake', place: 'On the lake' },
+];
+---
+
+<Base title="About">
+  <PageHero image={hero} alt="The Theta Sigma chapter in jackets at a chapter meeting" title="About Us" kicker="Who we are" focus="center 60%" />
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Alpha Tau Omega · Since 1865</p>
+        <h2>Discover our brotherhood</h2>
+        <p class="tagline">At the core of Alpha Tau Omega lies a foundation of sincere Christian principles.</p>
+        <p>
+          The organization was founded at the Virginia Military Institute in 1865 by Otis Allan Glazebrook, a young Civil War
+          veteran. His goal was to create a fraternity that would foster peace and brotherly love in a nation healing from
+          conflict, and he did just that.
+        </p>
+        <p>
+          As a deeply religious individual, Glazebrook believed that younger men would be more motivated to forgive and unite
+          with their Northern counterparts when inspired by Christian brotherhood. That belief became the heart of ATO.
+        </p>
+        <p class="tagline">The name came spontaneously.</p>
+        <p>
+          It was inspired by Glazebrook's observations of ancient church insignia and catacombs, specifically the Tau cross,
+          flanked by the Alpha and the Omega.
+        </p>
+        <a href="https://ato.org/" class="btn ghost">ATO National</a>
+      </div>
+      <Image src={letters} alt="Giant ATO letters on the lawn on Bid Day" widths={[600, 1000]} sizes="(min-width: 860px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="quote-band">
+    <blockquote>
+      <p>"I am Alpha and Omega, the beginning and the end, the first and the last."</p>
+      <cite>Revelation 22:13</cite>
+    </blockquote>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Theta Sigma Chapter</p>
+      <h2>Our chapter</h2>
+      <p class="lead">Theta Sigma is Alpha Tau Omega's chapter at Texas A&amp;M University. We're a tight-knit, Christian-founded brotherhood of Aggies from across Texas and beyond, with weekly Bible studies, a strong alumni network, and a calendar full of brotherhood, philanthropy, and social events.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <h2>What we stand for</h2>
+      <div class="grid">
+        {pillars.map((p) => (
+          <div class="pillar">
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Family</p>
+      <h2>Spring Parents Weekend</h2>
+      <p class="lead">Every spring we bring our families to College Station for Parents Weekend and a crawfish boil. It's our favorite chance to show our families the brotherhood we've built.</p>
+      <div class="photo-grid tall">
+        {parents.map((p) => <Image src={p.src} alt={p.alt} widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Chilifest 2026</p>
+        <h2>Chilifest</h2>
+        <p class="lead">Every spring, the brothers head out to Chilifest, one of the biggest weekends of the year in the Brazos Valley.</p>
+      </div>
+      <Image src={chilifest} alt="Three brothers in grey Chilifest 2026 tank tops" widths={[600, 1000]} sizes="(min-width: 860px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <!-- Ring Dunk photo goes here once the right one is in. -->
+      <div>
+        <p class="eyebrow">Aggie tradition</p>
+        <h2>Ring Dunk</h2>
+        <p class="lead">
+          Getting your Aggie Ring is one of the proudest moments at Texas A&amp;M. When a brother earns his ring, the whole
+          chapter dresses up and turns out to celebrate with him.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">Wherever we go</p>
+      <h2>ATO around the world</h2>
+      <p class="lead">From the Arizona desert to Southeast Asia, our brothers bring the letters with them.</p>
+      <div class="photo-grid travels">
+        {travels.map((t) => (
+          <figure>
+            <Image src={t.src} alt={t.alt} widths={[400, 700]} sizes="(min-width: 900px) 25vw, 50vw" />
+            <figcaption>{t.place}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .tall img {
+    aspect-ratio: 3 / 4;
+  }
+  .travels figure {
+    margin: 0;
+  }
+  figcaption {
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>

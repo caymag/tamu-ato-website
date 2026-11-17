@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import type { NewsItem } from '../data/site';
+
+type Props = NewsItem;
+const { title, date, image, alt, summary } = Astro.props;
+---
+
+<article class="card">
+  <Image src={image} alt={alt} widths={[600, 900]} sizes="(min-width: 900px) 380px, 100vw" />
+  <div class="card-body">
+    <p class="meta">{date}</p>
+    <h3>{title}</h3>
+    <p>{summary}</p>
+  </div>
+</article>

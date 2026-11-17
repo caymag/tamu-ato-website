@@ -1,0 +1,248 @@
+@import '@fontsource/bebas-neue/400.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/600.css';
+
+:root {
+  --ink: #0d1a2b;
+  --ink-2: #13243a;
+  --gold: #fdb144;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --line: rgba(255, 255, 255, 0.1);
+  --pad: clamp(1.25rem, 4vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--gold);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin-top: 0.75rem;
+  background: var(--gold);
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.tagline {
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--gold);
+}
+
+.lead {
+  font-size: 1.15rem;
+  max-width: 46rem;
+  color: #d1d5db;
+}
+
+/* Sections */
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+}
+.section.alt {
+  background: var(--ink-2);
+}
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.split {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.split img {
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.5rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+.photo-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Cards */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.section.alt .card {
+  background: var(--ink);
+}
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.card-body {
+  padding: 1.25rem 1.4rem 1.5rem;
+}
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+.meta {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+/* Pillars / numbered steps */
+.pillar {
+  border-top: 3px solid var(--gold);
+  padding-top: 1rem;
+}
+.pillar p {
+  color: #d1d5db;
+}
+
+
+
+/* Scripture / pull quote */
+.quote-band {
+  padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+  text-align: center;
+  background: var(--ink-2);
+}
+.quote-band blockquote {
+  max-width: 54rem;
+  margin: 0 auto;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  color: var(--gold);
+}
+.quote-band cite {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Gold call-to-action band */
+.cta-band {
+  background: var(--gold);
+  color: var(--ink);
+  padding: clamp(3rem, 7vw, 5rem) var(--pad);
+  text-align: center;
+}
+.cta-band h2::after {
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--ink);
+}
+.cta-band .btn {
+  background: var(--ink);
+  color: var(--text);
+}

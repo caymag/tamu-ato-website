@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { links } from '../data/site';
+import hero from '../assets/photos/bid-day/DSC_6138.jpg';
+---
+
+<Base title="Apparel">
+  <PageHero image={hero} alt="Back of a Fall Rush 2026 shirt" title="Apparel" kicker="Coming soon" focus="center 40%" />
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Merch is on the way</h2>
+      <p class="lead">Chapter apparel is coming soon. Follow us on <a href={links.instagram}>Instagram</a> to hear when the store opens.</p>
+      <a href="/contact" class="btn ghost">Questions? Contact us</a>
+    </div>
+  </section>
+</Base>
